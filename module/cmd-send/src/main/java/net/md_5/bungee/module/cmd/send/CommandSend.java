@@ -26,7 +26,7 @@ public class CommandSend extends Command implements TabExecutor
     {
         if ( args.length != 2 )
         {
-            sender.sendMessage( ChatColor.RED + "Not enough arguments, usage: /send <server|player|all|current> <target>" );
+            sender.sendMessage( ChatColor.GREEN + "Use this! /send (IGN) (ServerName)" );
             return;
         }
         ServerInfo target = ProxyServer.getInstance().getServerInfo( args[1] );
@@ -46,7 +46,7 @@ public class CommandSend extends Command implements TabExecutor
         {
             if ( !( sender instanceof ProxiedPlayer ) )
             {
-                sender.sendMessage( ChatColor.RED + "Only in game players can use this command" );
+                sender.sendMessage( ChatColor.GREEN + "Only in game players can use this command" );
                 return;
             }
             ProxiedPlayer player = (ProxiedPlayer) sender;
@@ -69,13 +69,13 @@ public class CommandSend extends Command implements TabExecutor
                 ProxiedPlayer player = ProxyServer.getInstance().getPlayer( args[0] );
                 if ( player == null )
                 {
-                    sender.sendMessage( ChatColor.RED + "That player is not online" );
+                    sender.sendMessage( ChatColor.GREEN + "Aww, that player isn't online!" );
                     return;
                 }
                 summon( player, target, sender );
             }
         }
-        sender.sendMessage( ChatColor.GREEN + "Successfully summoned player(s)" );
+        sender.sendMessage( ChatColor.GREEN + "Yay! They're there!" );
     }
 
     private void summon(ProxiedPlayer player, ServerInfo target, CommandSender sender)
@@ -83,7 +83,7 @@ public class CommandSend extends Command implements TabExecutor
         if ( player.getServer() != null && !player.getServer().getInfo().equals( target ) )
         {
             player.connect( target );
-            player.sendMessage( ChatColor.GOLD + "Summoned to " + target.getName() + " by " + sender.getName() );
+            player.sendMessage( ChatColor.GOLD + "You got teleported to " + target.getName() );
         }
     }
 
