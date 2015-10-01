@@ -10,7 +10,7 @@ public class CommandAlert extends Command
 
     public CommandAlert()
     {
-        super( "alert", "bungeecord.command.alert" );
+        super( "bc", "bungeecord.command.alert" );
     }
 
     @Override
@@ -18,17 +18,17 @@ public class CommandAlert extends Command
     {
         if ( args.length == 0 )
         {
-            sender.sendMessage( ChatColor.RED + "You must supply a message." );
+            sender.sendMessage( ChatColor.GREEN + "Supply a message!" );
         } else
         {
             StringBuilder builder = new StringBuilder();
-            if ( args[0].startsWith( "&h" ) )
+            if ( args[0].startsWith( "&z" ) )
             {
                 // Remove &h
                 args[0] = args[0].substring( 2, args[0].length() );
             } else
             {
-                builder.append( ProxyServer.getInstance().getTranslation( "alert" ) );
+                builder.append( ProxyServer.getInstance().getTranslation( "bc" ) );
             }
 
             for ( String s : args )
