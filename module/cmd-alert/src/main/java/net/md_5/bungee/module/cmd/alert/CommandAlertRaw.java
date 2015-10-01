@@ -23,7 +23,7 @@ public class CommandAlertRaw extends Command
     {
         if ( args.length == 0 )
         {
-            sender.sendMessage( ChatColor.RED + "You must supply a message." );
+            sender.sendMessage( ChatColor.GREEN + "Supply a message in JSON!" );
         } else
         {
             String message = Joiner.on( ' ' ).join( args );
@@ -41,7 +41,7 @@ public class CommandAlertRaw extends Command
                 if ( sender instanceof ProxiedPlayer )
                 {
                     sender.sendMessage(
-                            new ComponentBuilder( "An error occurred while parsing your message. (Hover for details)" ).
+                            new ComponentBuilder( "A error occured." ).
                             color( ChatColor.RED ).underlined( true ).
                             event( new HoverEvent( HoverEvent.Action.SHOW_TEXT, new ComponentBuilder( error.getMessage() ).color( ChatColor.RED ).create() ) ).
                             create() );
